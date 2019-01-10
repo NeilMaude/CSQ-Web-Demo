@@ -1,0 +1,236 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+
+    <title>Carnival Customer Survey</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/template_css/csq_survey_run.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Carnival Cruises Satisfaction Survey</h1>
+        {% if group_number == 1 %}
+            <p>Thank you for taking part in this survey, this is page 1 of {{num_groups}}</p>
+        {% else %}
+            <p>Page {{group_number}} of {{num_groups}}</p>
+        {% endif %}
+        <h2>{{group_name}}</h2>
+        <form role="form" method="post">
+            <!--Loop over the questions list, adding each in turn-->
+            {% for q in questions %}
+                {% if q.q_type == 'check5' %}
+                {{q.q_desc}}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-2">
+                            <label>
+                                {% if q.q_value == '1' %}
+                                <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="1" checked> {{q.q_list[0]}}
+                                {% else %}
+                                <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="1"> {{q.q_list[0]}}
+                                {% endif %}
+                            </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                            <label>
+                                {% if q.q_value == '2' %}
+                                <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="2" checked> {{q.q_list[1]}}
+                                {% else %}
+                                <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="2"> {{q.q_list[1]}}
+                                {% endif %}
+                            </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '3' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="3" checked> {{q.q_list[2]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="3"> {{q.q_list[2]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '4' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="4" checked> {{q.q_list[3]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="4"> {{q.q_list[3]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '5' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="5" checked> {{q.q_list[4]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="5"> {{q.q_list[4]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                </div>                    
+                {% elif q.q_type == 'check4' %}
+                {{q.q_desc}}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '1' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="1" checked> {{q.q_list[0]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="1"> {{q.q_list[0]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '2' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="2" checked> {{q.q_list[1]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="2"> {{q.q_list[1]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '3' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="3" checked> {{q.q_list[2]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="3"> {{q.q_list[2]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label>
+                            {% if q.q_value == '4' %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="4" checked> {{q.q_list[3]}}
+                            {% else %}
+                            <input type="radio" name="{{q.q_name}}" id="{{q.q_name}}" value="4"> {{q.q_list[3]}}
+                            {% endif %}
+                        </label>
+                    </div>
+                    </label>
+                </div>
+                {% elif q.q_type == 'text' %}
+                {{q.q_desc}}
+                    <div>
+                        {% if q.q_value == None %}
+                            <textarea class="form-control" rows="3" name="{{q.q_name}}"></textarea>
+                        {% else %}
+                            <textarea class="form-control" rows="3" name="{{q.q_name}}">{{q.q_value}}</textarea>
+                        {% endif %}
+                    </div>
+                {% elif q.q_type == 'list' %}
+                {{q.q_desc}}
+                    <div>
+                        <select class="form-control" name="{{q.q_name}}">
+                            {% for l in q.q_list %}
+                                {% if l == q.q_value %}
+                                    <option selected="selected">{{l}}</option>
+                                {% else %}
+                                    <option>{{l}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% else %}
+                <div class="error">Invalid question type passed</div>
+                {% endif %}
+                <br />
+            {% endfor %}
+                <!--<div>
+            Question description (checkbox).
+            <div class="container">
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 1
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option2"> 2
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option3" checked> 3
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option4"> 4
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option5"> 5
+                </label>
+            </div>
+        </div>-->
+                <!--<div>
+            Question description (checkbox).
+            <div class="container">
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 1
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option2"> 2
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option3"> 3
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option4"> 4
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option5"> 5
+                </label>
+            </div>
+        </div>-->
+                <!--<div>
+            Question - text box area
+            <textarea class="form-control" rows="3" name="textarea1"></textarea>
+        </div>-->
+            <!--<div>
+                Question - drop down list control
+                <select class="form-control" name="droplist1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>-->
+
+            <!--</div>-->
+            <div class="error">
+                {{error_text}}
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-4">
+                    {% if group_number > 1 %}
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="formButton" value="Back">Back</button>
+                    {% endif %}
+                </div>
+                <div class="col-xs-4"> </div>
+                <div class="col-xs-4"><button class="btn btn-lg btn-primary btn-block" type="submit" name="formButton" value="Next">{{next_button_text}}</button></div>
+            </div>
+
+    </form>
+
+    </div> <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
+

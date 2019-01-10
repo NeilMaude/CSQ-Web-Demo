@@ -1,0 +1,61 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+
+    <title>Carnival Customer Survey</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./static/template_css/csq_survey_landing.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body background="/static/Default_background.jpg">
+
+    <div class="container">
+
+        <div class="starter-template">
+            <h1>Satisfaction Survey</h1>
+            <br />
+            <p class="lead">Hello {{firstname}}</p>
+            <p class="lead">Thank you for taking the time to answer these survey questions. We value both your time and your views.</p>
+            <p class="lead">Your reponses will be saved at the end of each page, so you can pause this survey if you need to.  Just use the original link when you want to continue the survey later.</p>
+            <a role="button" class="btn btn-lg btn-primary" href="/runsurvey?SurveyID={{survey_id}}">Continue</a>
+            <p> </p>
+            <p class="lead"><small>(This is the Carnival demonstration system.)</small></p>
+
+            {% if error_text %}
+            <div class="error">
+                <p>{{error_text}}</p>
+            </div>
+            {% endif %}
+
+            {% if token %}
+            <a href="/logout">Logout</a>
+            {% endif %}
+        </div>
+
+    </div><!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
