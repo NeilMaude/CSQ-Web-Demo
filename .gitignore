@@ -22,3 +22,6 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 *.pyc
+.idea/CSQ-Web-Demo.iml
+.idea/misc.xml
+.idea/modules.xml
